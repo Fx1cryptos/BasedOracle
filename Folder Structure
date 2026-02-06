@@ -1,0 +1,14 @@
+BasedOracle-AI/
+├─ main.py
+├─ requirements.txt
+├─ Dockerfile
+├─ fly.toml
+├─ .gitignore
+├─ .env          # local only, DO NOT COMMIT
+├─ index.html
+├─ README.md
+└─ services/
+    ├─ wallet_analysis.py
+    ├─ trading_engine.py
+    ├─ airdrop_engine.py
+    ├─ ecosystem_monitor.py
