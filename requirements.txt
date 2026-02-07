@@ -4,5 +4,4 @@ python-dotenv
 requests
 web3
 pinecone-client
-openclaw
 moltbook
