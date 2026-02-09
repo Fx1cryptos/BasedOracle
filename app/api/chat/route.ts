@@ -1,10 +1,5 @@
-import { generateText } from 'ai'
-import { createOpenAI } from '@ai-sdk/openai'
-
-// Using Vercel AI Gateway (automatically handles authentication)
-const openai = createOpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-})
+import { streamText } from 'ai'
+import { openai } from '@ai-sdk/openai'
 
 const systemPrompt = `You are Base Oracle – a calm, credible, and maximally intelligent AI agent for the entire Base blockchain ecosystem. 
 
@@ -46,48 +41,24 @@ When users ask about specific data, explain what you would fetch from:
 
 export async function POST(request: Request) {
   try {
-    const { messages, userMessage } = await request.json()
+    const { messages } = await request.json()
 
-    if (!userMessage) {
-      return Response.json({ error: 'No message provided' }, { status: 400 })
+    if (!messages || !Array.isArray(messages)) {
+      return new Response('No messages provided', { status: 400 })
     }
 
-    // Build message history for context
-    const messageHistory = messages.map((msg: any) => ({
-      role: msg.role,
-      content: msg.content,
-    }))
-
-    // Generate response using AI SDK
-    const { text } = await generateText({
+    // Stream text response using AI SDK
+    const result = streamText({
       model: openai('gpt-4o-mini'),
       system: systemPrompt,
-      messages: [
-        ...messageHistory,
-        {
-          role: 'user',
-          content: userMessage,
-        },
-      ],
+      messages,
       temperature: 0.7,
       maxTokens: 1024,
     })
 
-    return Response.json({
-      content: text,
-      timestamp: new Date().toISOString(),
-    })
+    return result.toDataStreamResponse()
   } catch (error) {
     console.error('[v0] Chat API error:', error)
-
-    // Fallback response if API fails
-    return Response.json(
-      {
-        content:
-          'I encountered an issue processing your request. Please try again or check if your API keys are properly configured.',
-        error: error instanceof Error ? error.message : 'Unknown error',
-      },
-      { status: 500 }
-    )
+    return new Response('Failed to generate response', { status: 500 })
   }
 }
