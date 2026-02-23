@@ -1,0 +1,16 @@
+{
+  "name": "BasedOracle",
+  "short_name": "BasedOracle",
+  "description": "Autonomous Onchain Intelligence for Base.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0504aa",
+  "theme_color": "#0504aa",
+  "icons": [
+    {
+      "src": "https://blob.8004scan.app/ae6661ea5f6c31c764a08602269398691465ffd3d5b95441c2da36d74eba458d.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    }
+  ]
+}

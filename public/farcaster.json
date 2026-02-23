@@ -1,0 +1,15 @@
+{
+  "name": "BasedOracle",
+  "icon": "https://blob.8004scan.app/ae6661ea5f6c31c764a08602269398691465ffd3d5b95441c2da36d74eba458d.jpg",
+  "description": "Autonomous Onchain Intelligence for Base.",
+  "url": "https://basedoracl-ai-agent-819hawk9.sites.blink.new",
+  "splashImage": "https://blob.8004scan.app/ae6661ea5f6c31c764a08602269398691465ffd3d5b95441c2da36d74eba458d.jpg",
+  "splashBackgroundColor": "#0504aa",
+  "actions": [
+    {
+      "type": "link",
+      "label": "Launch Agent",
+      "url": "https://basedoracl-ai-agent-819hawk9.sites.blink.new/agent"
+    }
+  ]
+}
