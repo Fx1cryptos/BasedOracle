@@ -14,6 +14,7 @@ const navItems = [
   { label: "Trends", href: "/trends" },
   { label: "Token", href: "/token" },
   { label: "Social", href: "/feed" },
+  { label: "Ecosystem", href: "/ecosystem" },
   { label: "Docs", href: "/docs" },
 ];
 

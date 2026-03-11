@@ -11,6 +11,7 @@ import TrendsPage from "./pages/TrendsPage";
 import TokenPage from "./pages/TokenPage";
 import FeedPage from "./pages/FeedPage";
 import DocsPage from "./pages/DocsPage";
+import EcosystemReportPage from "./pages/EcosystemReportPage";
 import NotFound from "./pages/NotFound";
 
 const App = () => (
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/token" element={<TokenPage />} />
           <Route path="/feed" element={<FeedPage />} />
           <Route path="/docs" element={<DocsPage />} />
+          <Route path="/ecosystem" element={<EcosystemReportPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
